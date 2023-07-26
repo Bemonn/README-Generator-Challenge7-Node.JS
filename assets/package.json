@@ -1,5 +1,27 @@
 {
   "dependencies": {
     "inquirer": "^8.2.4"
-  }
+  },
+  "name": "readme-generator",
+  "description": "![GitHub](https://img.shields.io/badge/license-mit-blue)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bemonn/README-Generator-Challenge7-Node.JS.git"
+  },
+  "keywords": [
+    "README",
+    "Generator"
+  ],
+  "author": "Bemon (Tristan Brennan)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bemonn/README-Generator-Challenge7-Node.JS/issues"
+  },
+  "homepage": "https://github.com/Bemonn/README-Generator-Challenge7-Node.JS#readme"
 }

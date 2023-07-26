@@ -1,5 +1,5 @@
-import inquirer from 'inquirer';
-import fs from 'fs/promises';
+const inquirer = require('inquirer');
+const fs = require('fs');
 
 const questions = [
   {
@@ -39,45 +39,43 @@ const questions = [
   },
 ];
 
-async function writeToFile(fileName, data) {
-  try {
-    await fs.writeFile(fileName, data);
-    console.log("Successfully wrote: " + fileName);
-  } catch (err) {
-    console.log(err);
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+      if (err) {
+        return console.log(err);
+      }
+  
+      console.log("Successfully wrote: " + fileName);
+    });
   }
-}
-
-async function init() {
-  try {
-    const answers = await inquirer.prompt(questions);
-
-    let output = 
-    `# ${answers.projectTitle}
-
-## Description
-${answers.description}
-
-## Installation
-${answers.installation}
-
-## Usage
-${answers.usage}
-
-## Contributing
-${answers.contributing}
-
-## Tests
-${answers.tests}
-
-## License
-${answers.license}
-    `;
-
-    await writeToFile("README.md", output);
-  } catch (err) {
-    console.log(err);
+  
+  function init() {
+    inquirer.prompt(questions)
+      .then((answers) => {
+        let output = 
+        `# ${answers.projectTitle}
+  
+  ## Description
+  ${answers.description}
+  
+  ## Installation
+  ${answers.installation}
+  
+  ## Usage
+  ${answers.usage}
+  
+  ## Contributing
+  ${answers.contributing}
+  
+  ## Tests
+  ${answers.tests}
+  
+  ## License
+  ${answers.license}
+        `;
+  
+        writeToFile("README.md", output);
+      });
   }
-}
-
-init();
+  
+  init();

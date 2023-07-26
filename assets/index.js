@@ -33,11 +33,34 @@ const questions = [
     message: 'How to test your project?',
   },
   {
-    type: 'input',
-    name: 'license',
-    message: 'Under which license is your project?',
+    type: "list",
+    name: "license",
+    message: "What kind of license should your project have?",
+    choices: [
+      "No license",
+      "Apache License 2.0",
+      "GNU v3",
+      "MIT",
+      "BSD 2-Clause",
+      "BSD-3-Clause",
+      "Boost",
+      "Creative Commons",
+      "Eclipse",
+      "GNU GPL v3",
+      "Mozilla",
+      "The Unlicense",
+    ],
   },
 ];
+
+function renderLicenseBadge(license) {
+    let licenseFormatted = license.toLowerCase().split(' ').join('%20');
+    if (licenseFormatted === 'no%20license') {
+      return '';
+    } else {
+      return `![GitHub](https://img.shields.io/badge/license-${licenseFormatted}-blue)`;
+    }
+  }
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
@@ -54,9 +77,17 @@ function writeToFile(fileName, data) {
       .then((answers) => {
         let output = 
         `# ${answers.projectTitle}
-  
+  ${renderLicenseBadge(answers.license)}
+
   ## Description
   ${answers.description}
+
+  ## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [License](#license)
   
   ## Installation
   ${answers.installation}

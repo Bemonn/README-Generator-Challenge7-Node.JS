@@ -7,6 +7,7 @@
   ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Walkthrough-Video](#walkthrough-video)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [License](#license)
@@ -14,9 +15,20 @@
   
   ## Installation
   npm install inquirer@8.2.4 is needed to be installed to get node_modules
+  ![Alt text](assets/images/Showcase1.PNG)
   
   ## Usage
-  run "node index.js" in the intergrated terminal, this will make a folder named "Generated README" if one does not already exist and then the generated README will be put inside
+  run "node index.js" in the intergrated terminal, 
+  ![Alt text](assets/images/Showcase2.PNG)
+  User will then be prompted with questions for README generation
+  ![Alt text](assets/images/Showcase3.PNG)
+  this will make a folder named "Generated README" if one does not already exist and then the generated README will be put inside.
+  Demo readme:
+  ![Alt text](assets/images/demoreadme1.PNG)
+  ![Alt text](assets/images/demoreadme2.PNG)
+
+  ## Walkthrough Video
+   https://drive.google.com/file/d/1-jhWC1F_hoQrse_z45BXoPTtlZTAfyZ-/view 
   
   ## Contributing
   refer to "Questions" for contact information to contribute

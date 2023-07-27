@@ -1,6 +1,8 @@
+//Including required npm packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//Array of questions for README generation
 const questions = [
   {
     type: 'input',
@@ -63,6 +65,7 @@ const questions = [
   },
 ];
 
+//Function to generate badge dependent on user's choice of license
 function renderLicenseBadge(license) {
     let licenseFormatted = license.toLowerCase().split(' ').join('%20');
     if (licenseFormatted === 'no%20license') {
@@ -72,6 +75,7 @@ function renderLicenseBadge(license) {
     }
   }
 
+  //Function to write user's response to README file/return error/make folder for README storage
   function writeToFile(fileName, data) {
     const dir = './Generated README';
 
@@ -90,6 +94,7 @@ function renderLicenseBadge(license) {
     });
 }
   
+//Generated README layout and answers
   function init() {
     inquirer.prompt(questions)
       .then((answers) => {
@@ -133,4 +138,5 @@ For any questions, please feel free to reach out through the following channels:
       });
   }
   
+  //Call init to start the program
   init();
